@@ -702,7 +702,7 @@ table td:hover{
     margin-bottom: 5%;
   }
   .kla h3{
-    font-size: 0.5rem;
+    font-size: 2rem;
     color: greenyellow;
   }
   .don{
@@ -710,7 +710,7 @@ table td:hover{
   }
   .don a {
     text-align: center;
-    padding: 15px 200px;
+    padding: 15px 80px;
     border-radius: 50px;
     background-color: crimson;
     color: white;
