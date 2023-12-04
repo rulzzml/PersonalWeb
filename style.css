@@ -608,7 +608,8 @@ th {
   .banner p{
     font-size: 20px;
     width: 100%;
-    margin-left: 70px;
+    margin-left: 40px;
+    text-align: center;
   }
   .responsive-table,
   .penjualan table{
