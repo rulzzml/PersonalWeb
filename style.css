@@ -166,7 +166,6 @@ body {
   left: 0;
   right: 0;
   z-index: 9999;
-  margin: 1vh;
 }
 
 .navbar .navbar-logo {
@@ -317,8 +316,9 @@ body {
 footer {
   background-color: var(--primary);
   text-align: center;
-  padding: 1rem 0 3rem;
+  padding: 0;
   margin-top: 3rem;
+  width: 100%;
 }
 
 footer .socials {
@@ -329,7 +329,7 @@ footer .socials a {
   color: #fff;
   margin: 1rem;
   /* font-size: 1.7rem; */
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 
 footer .socials a:hover,
@@ -349,6 +349,7 @@ footer .links a {
 
 footer .credit {
   font-size: 0.8rem;
+  width: 100%;
 }
 
 footer .credit p {
@@ -360,31 +361,11 @@ footer .credit a {
   font-weight: 700;
 }
 
-/* Modal Box */
-/* Item Detail */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
+footer .credit p{
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.7);
+  display: inline-flex;
+  flex-direction: column;
 }
-
-.modal-container {
-  position: relative;
-  background-color: #fefefe;
-  color: var(--bg);
-  margin: 15% auto;
-  padding: 1.2rem;
-  border: 1px solid #666;
-  width: 80%;
-  animation: animateModal 0.5s;
-}
-
 /* Modal Animation */
 @keyframes animateModal {
   from {
@@ -397,49 +378,15 @@ footer .credit a {
   }
 }
 
-.modal-container .close-icon {
-  position: absolute;
-  right: 1rem;
-}
-
-.modal-content {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.modal-content img {
-  height: 20rem;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
-}
-
-.modal-content p {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-  margin-top: 1.2rem;
-}
-
-.modal-content a {
-  display: flex;
-  gap: 1rem;
-  width: 12rem;
-  background-color: var(--primary);
-  color: #fff;
-  margin-top: 1rem;
-  padding: 1rem 1.6rem;
-}
-
 #shopping-cart-button {
   display: inline-block;
 }
-
-/* Banner */
 
 /* Banner*/
 
 .banner {
   background-color: #3b5999;
-  height: 500px;
+  height: 650px;
   text-align: center;
   align-items: center;
   color: white;
@@ -455,13 +402,17 @@ footer .credit a {
   margin-bottom: 10px;
 }
 .banner p {
-  margin-bottom: 50px;
+  margin-left: 500px;
+  font-size: 15px;
+  width: 100%;
+  margin-bottom: 30px;
 }
 .banner a {
   padding: 15px 300px;
   border-radius: 50px;
   background-color: crimson;
   color: white;
+  font-size: 2rem;
   text-decoration: none;
 }
 .banner a:hover {
@@ -488,7 +439,86 @@ h1 span::before {
   }
 }
 
-/* Media Queries */
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.responsive-table th, .responsive-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.responsive-table th {
+  background-color: #333;
+}
+
+.tabel .responsive-table td:hover{
+  background: #0077ff;
+}
+
+.tabel .responsive-table th:hover{
+  background: #0077ff;
+}
+@media (max-width: 600px) {
+  .responsive-table {
+      display: block;
+  }
+
+  .responsive-table tr {
+      margin-bottom: 10px;
+      display: block;
+  }
+
+  .responsive-table th, .responsive-table td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+  }
+}
+
+.tb{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+/* Penjualan */
+.penjualan h1{
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2.5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  margin-bottom: 15%;
+}
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+th {
+  background-color: #ff0000;
+}
+
+.container .wrapper .komponen{
+  box-sizing: border-box;
+  border: 4px solid #333;
+  display: inline-block;
+}
+.container .wrapper .komponen img, h2, p{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-left: 5px;
+  text-align: center;
+}
 /* Laptop */
 @media (max-width: 1366px) {
   html {
@@ -500,6 +530,7 @@ h1 span::before {
 @media (max-width: 758px) {
   html {
     font-size: 67.8%;
+    max-width: 758px;
   }
   #hamburger-menu {
     display: inline-block;
@@ -573,6 +604,39 @@ h1 span::before {
   .navbar .navbar-nav .login:hover::after {
     transform: scaleX(1);
     transition: all 0.5s ease;
+  }
+  .banner p{
+    font-size: 20px;
+    width: 100%;
+    margin-left: 70px;
+  }
+  .responsive-table,
+  .penjualan table{
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 35px;
+  }
+  footer .socials a {
+    font-size: 2rem;
+  }
+  .container .wrapper .komponen{
+    box-sizing: border-box;
+    border: 4px solid #333;
+    width: 200px;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .container .wrapper .komponen h2{
+    font-size: 1rem;
+  }
+  .container .wrapper .komponen p{
+    font-size: 10px;
+  }
+  .container .wrapper .komponen img, h2, p{
+    text-align: center;
   }
 }
 
