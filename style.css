@@ -1,253 +1,728 @@
-<!DOCTYPE html>
-<html lang="en">
+:root {
+  --primary: #b6895b;
+  --bg: #010101;
+}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website In Yandex</title>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  max-width: 100%;
+}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
-    rel="stylesheet">
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #fff;
+  align-items: center;
+  margin-right: 0;
+}
 
-  <!-- Font awesome -->
-  <script src="https://kit.fontawesome.com/ce0ff88187.js" crossorigin="anonymous"></script>
+/* Efek LED */
 
-  <!-- My Style -->
-  <link rel="stylesheet" href="./style.css">
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  <!-- Icon Web -->
-  <link rel="icon" href="./img/">
-</head>
-<body>
+.bar-top {
+  width: 100%;
+  height: 5px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  animation: progress-horizontal, progress-color;
+  animation-timeline: scroll();
+  transform-origin: 0%;
+}
+.bar-bottom {
+  width: 100%;
+  height: 5px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  animation: progress-horizontal, progress-color;
+  animation-timeline: scroll();
+  transform-origin: 100%;
+}
+.bar-left {
+  width: 5px;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  animation: progress-vertikal, progress-color;
+  animation-timeline: scroll();
+  transform-origin: 0 100%;
+}
+.bar-right {
+  width: 5px;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  animation: progress-vertikal, progress-color;
+  animation-timeline: scroll();
+  transform-origin: 100% 0;
+}
 
-  <!-- Efek LED saat scrolling start-->
-  <div class="bar-top"></div>
-  <div class="bar-bottom"></div>
-  <div class="bar-left"></div>
-  <div class="bar-right"></div>
-  <div class="container"></div>
-  <div class="container"></div>
-<!-- Efek LED saat scrolling end -->
+@keyframes progress-horizontal {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes progress-vertikal {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
 
-  <!-- Navbar start -->
-  <nav class="navbar">
-    <a href="#" class="navbar-logo">Rulzz<span>Website</span></a> 
+@keyframes progress-color {
+  0% {
+    background-color: #ff0000;
+  }
+  1% {
+    background-color: #ff7300;
+  }
+  2% {
+    background-color: #ffd900;
+  }
+  3% {
+    background-color: #7bff00;
+  }
+  4% {
+    background-color: rgb(0, 255, 64);
+  }
+  5% {
+    background-color: #00ff4c;
+  }
+  6% {
+    background-color: #00ff95;
+  }
+  7% {
+    background-color: #0077ff;
+  }
+  10% {
+    background-color: #002fff;
+  }
+  15% {
+    background-color: #4400ff;
+  }
+  20% {
+    background-color: #ae00ff;
+  }
+  35% {
+    background-color: #ff00ff;
+  }
+  45% {
+    background-color: #ff0095;
+  }
+  55% {
+    background-color: #ff004c;
+  }
+  70% {
+    background-color: #fa1717;
+  }
+  85% {
+    background-color: seagreen;
+  }
+  89% {
+    background-color: darkorange;
+  }
+  95% {
+    background-color: gold;
+  }
+  97% {
+    background-color: goldenrod;
+  }
+  100% {
+    background-color: aqua;
+  }
+}
 
-    <div class="navbar-nav">
-      <a href="#home" class="home">Home<i class="fa-solid fa-house"></i></a>
-      <a href="#tabel">Profile <i class="fa-solid fa-user"></i></a>
-      <a href="https://www.youtube.com/@bangrulzz44" class="sub">Subscribe<i class="fa-brands fa-youtube"></i></a>
-      <a href="mailto:khoirullanam0411@gmail.com"  class="contact">Contact<i class="fa-solid fa-address-book"></i></a>
-      <a href="https://saweria.co/RulzzML" class="gift">Gift<i class="fa-solid fa-gift"></i></a>
-      <a href="./login.html" class="login">Login<i class="fa-solid fa-right-to-bracket"></i></a>
-      </div>
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: #1f1e1e;
+  border-bottom: 1px solid white;
+  border-radius: 16px;
+  position: fixed;
+  margin: 5px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
 
-    <div class="navbar-extra">
-      <a href="#" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
-      <a href="#" id="shopping-cart-button"><i class="fa-solid fa-cart-shopping"></i></a>
-      <a href="#" id="hamburger-menu"><i class="fa-solid fa-bars"></i></a>
-      <a href="./login.html" id="user"><i class="fa-regular fa-user"></i></a>
-    </div>
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  font-style: italic;
+}
 
-    <!-- Search Form start -->
-    <div class="search-form">
-      <input type="search" id="search-box" placeholder="Cari sesuatu....">
-      <label for="search-box"><i data-feather="search"></i></label>
-    </div>
-    <!-- Search Form end -->
+.navbar .navbar-logo span {
+  color: var(--primary);
+}
 
-    <!-- Shopping Cart start -->
-    <div class="shopping-cart">
-      <div class="cart-item">
-        <div class="item-detail">
-          <h3>Donasi for Rull and Palestine</h3>
-          <div class="item-price">IDR 20K</div>
-          <div class="item-price">Web akan memotong saldo secara otomatis</div>
-        </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-      </div>
-    </div>
-    </div>
-    <!-- Shopping Cart end -->
-</nav>
-<!-- Navbar end -->
+.navbar .navbar-nav a {
+  color: #fff;
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+}
 
- <!-- Banner start -->
- <div class="banner" id="home">
-    <img src="./img/foto.jpg" alt="Gambar">
-    <h1><span></span></h1>
-    <p>Semua yang ada di web hanyalah kegabutan saya (rull)</p>
-    <a href="https://saweria.co/RulzzML">Donasi</a>
-  </div>
-<!-- Banner end -->
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
 
-<!-- Tabel Perkenalan start -->
-<div class="tabel" id="tabel">
-  <h1 class="tb">Table Perkenalan Diri</h1>
-  <table class="responsive-table">
-    <tr>
-        <th>Nama</th>
-        <td>Khoirul Anam</td>
-    </tr>
-    <tr>
-        <th>Umur</th>
-        <td>14 tahun</td>
-    </tr>
-    <tr>
-        <th>Pekerjaan</th>
-        <td>Web Developer And Designer Web</td>
-    </tr>
-    <tr>
-        <th>Cita-Cita</th>
-        <td>Programmer</td>
-    </tr>
-  </table>
-</div>
-<!-- Tabel Perkenalan end -->
+.navbar .navbar-nav a::after {
+  content: '';
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
 
-<!-- Tabel Penjualan Start -->
-<div class="penjualan" id="tabel">
-  <h1>Hasil Jualan Ngarang</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Nama Produk</th>
-        <th>Harga Satuan</th>
-        <th>Total Pendapatan</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Nasi Padang</td>
-        <td>RP 10.000</td>
-        <td>RP 620.000</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Hoodie</td>
-        <td>RP 45.000</td>
-        <td>RP 2.500.000</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Semvack Barbie</td>
-        <td>RP 2.500</td>
-        <td>RP 125.000</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<!-- Tabel Penjualan End -->
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
 
-<!-- Keunggulan start -->
-<div class="card-row">
-  <h1>Keunggulan Kalo Lu Beli Di Gw</h1>
-  <div class="card-column">
-      <div class="card">
-          <img src="../asset gambar/wrench.png" alt="">
-          <h3>Customer Service</h3>
-          <p>Mempunyai CS yang memungkinkan membantu anda saat mengalami kendala</p>
-      </div>
-  </div>
-  <div class="card-column">
-      <div class="card">
-          <img src="../asset gambar/rating.png" alt="">
-          <h3>25.000+ Rating</h3>
-          <p>Mendapatkan 25.000 lebih rating dari pengguna selama menggunakan jasa RulzzML</p>
-      </div>
-  </div>
-  <div class="card-column">
-      <div class="card">
-          <img src="../asset gambar/partner.png" alt="">
-          <h3>Ramah</h3>
-          <p>Mempunyai 500.000 admin, semuanya dijamin amanah dan ramah</p>
-      </div>
-  </div>
-  <div class="card-column">
-      <div class="card">
-          <img src="../asset gambar/hot-deal.png" alt="">
-          <h3>Promo Akhir Tahun</h3>
-          <p>Promo semvack barbie, beli 20.000 dapat 100 pcs semvack dan dapat bonus 5 semvack spiderman</p>
-      </div>
-  </div>
-</div>
+.navbar .navbar-extra a {
+  color: #fff;
+  margin: 0 0.5rem;
+  font-size: 1.8rem;
+}
 
-<div class="card-row">
-  <h2>Bonus Akhir Tahun Mendapatkan</h2>
-  <div class="card-column">
-    <div class="card">
-      <img src="./img/sempak2.jpg" alt="">
-      <h3>Semvack Barbie</h3>
-      <p>Beli 20 pcs untuk mendapatkan bonus 5 semvack spiderman</p>
-      <p><a href="https://shopee.co.id/Celana-Dalam-Anak-Barbie-i.5607301.1543449524">Klik disini untuk membeli</a></p>
-    </div>
-  </div>
-  <div class="card-column">
-    <div class="card">
-      <img src="./img/sempak.jpg" alt="">
-      <h3>Semvack Spiderman</h3>
-      <p>Mendapat 5 semvack spiderman setelah membeli 20 pcs semvack barbie</p>
-    </div>
-  </div>
-  <div class="card-column">
-    <div class="card">
-      <img src="./img/soldout.png" alt="">
-      <h3>Promo Sudah Berakhir</h3>
-      <p>Promo sudah berakhir sejak 14 oktober 2023 silam</p>
-    </div>
-  </div>
-  <div class="card-column">
-    <div class="card">
-      <img src="./img/soldout.png" alt="">
-      <h3>Promo Sudah Berakhir</h3>
-      <p>Promo sudah berakhir sejak 22 oktober 2023 silam</p>
-    </div>
-  </div>
-</div>
-<!-- Keunggulan end -->
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
 
-<!-- Klarifikasi start -->
-<div class="kla">
-  <h3>Semua yang berada di website adalah suatu karya kegabutan saya (rull). Saya akan membuat website ini menjadi lebih dark. Website ini akan saya privat sebelum 30 desember 2023, dan akan saya buka 5 januari 2024. Abaikan responsive pada smartphone, bakal di fix update besok!! Minimal donasi lahh</h3>
-</div>
-<div class="don">
-  <a href="https://saweria.co/RulzzML">Donasi</a>
-</div>
-<!-- Klarifikasi end -->
+#hamburger-menu {
+  display: none;
+}
 
-<!-- Footer Start -->
-<footer>
-  <div class="footercontainer">
-    <div class="socialicons">
-      <a href="#"><i class="fa-brands fa-github"></i></a>
-      <a href="#"><i class="fa-brands fa-github"></i></a>
-      <a href="#"><i class="fa-brands fa-github"></i></a>
-      <a href="#"><i class="fa-brands fa-github"></i></a>
-    </div>
-    <div class="footernav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Subscribe</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Gift</a></li>
-      </ul>
-    </div>
-  </div>
-    <div class="footerbottom">
-      <p>Copyright &copy; 2023 rull | All Right Reserved</p>
-    </div>
-</footer>
-<!-- Footer end -->
+.navbar .navbar-nav .login{
+    background-color: #002fff;
+    padding: 12px 12px;
+    border-radius: 16px;
+}
 
-  <!-- My Javascript -->
-  <script src="./script.js"></script>
-</body>
+.navbar .navbar-nav i{
+    padding-left: 5px;
+    padding-right: 10px;
+}
+/* Navbar search form */
+.navbar .search-form {
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  background-color: #fff;
+  width: 50rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
 
-</html>
+.navbar .search-form.active {
+  transform: scaleY(1);
+}
+
+.navbar .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--bg);
+  padding: 1rem;
+}
+
+.navbar .search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: var(--bg);
+}
+
+/* Shopping Cart */
+.shopping-cart {
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  height: 100vh;
+  width: 35rem;
+  padding: 0 1.5rem;
+  background-color: #fff;
+  color: var(--bg);
+  transition: 0.3s;
+}
+
+.shopping-cart.active {
+  right: 0;
+}
+
+.shopping-cart .cart-item {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #666;
+  position: relative;
+}
+
+.shopping-cart img {
+  height: 6rem;
+  border-radius: 50%;
+}
+
+.shopping-cart h3 {
+  font-size: 1.6rem;
+  padding-bottom: 0.5rem;
+}
+
+.shopping-cart .item-price {
+  font-size: 1.2rem;
+}
+
+.shopping-cart .remove-item {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.shopping-cart .remove-item:hover {
+  color: var(--primary);
+}
+
+#shopping-cart-button {
+  display: inline-block;
+}
+
+/* Banner*/
+
+.banner {
+  background-color: #3b5999;
+  height: 650px;
+  text-align: center;
+  align-items: center;
+  color: white;
+}
+.banner img {
+  border-radius: 130px;
+  height: 140px;
+  border: 3px solid white;
+  margin-top: 110px;
+}
+.banner h1 {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.banner p {
+  text-align: center;
+  font-size: 20px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.banner a {
+  text-align: center;
+  padding: 15px 300px;
+  border-radius: 50px;
+  background-color: crimson;
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+}
+.banner a:hover {
+  background-color: #3b5999;
+  border: 2px solid white;
+  transition: all 0.4s ease;
+}
+h1 span::before {
+  content: "";
+  animation: gerak infinite 8s ease;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 70px;
+}
+@keyframes gerak {
+  0% {
+    content: "Hallo.. Selamat Datang";
+  }
+  50% {
+    content: "Nama saya Subono Jaya";
+  }
+  100% {
+    content: "Terimakasih sudah berkunjung";
+  }
+}
+
+.responsive-table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.responsive-table th, .responsive-table td {
+  border: 2px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.responsive-table th {
+  background-color: #333;
+}
+
+.tabel .responsive-table td:hover{
+  background: #0077ff;
+}
+@media (max-width: 600px) {
+  .responsive-table {
+      display: block;
+  }
+
+  .responsive-table tr {
+      margin-bottom: 10px;
+      display: block;
+  }
+
+  .responsive-table th, .responsive-table td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+  }
+}
+
+.tb{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+/* Penjualan */
+.penjualan h1{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 50px;
+  font-size: 2.5rem;
+}
+table {
+  text-align: center;
+  width: 90%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  margin-bottom: 15%;
+  margin-left: 50px;
+  font-size: 1rem;
+}
+th, td {
+  border: 2px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+th {
+  background-color: #ff0000;
+}
+table td:hover{
+  background-color: #0077ff;
+  transition: 0.3s;
+}
+
+/* Card 24 Jam DLL */
+.card img{
+  height: 200px;
+  width: 200px;
+}
+.card-row{
+  width: 100%;
+  margin: 0 2px;
+  margin-bottom: 40%;
+  text-align: center;
+}
+.card-row h1{
+  margin-bottom: 50px;
+  text-align: center;
+}
+.card-column{
+  align-items: center;
+  width: 20%;
+  float: left;
+  padding: 0 14px;
+}
+.card{
+  align-items: center;
+  background-color: #333;
+  padding: 13px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: 0.8s;
+}
+.card:hover{
+  background-color: #0077ff;
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.8);
+}
+.card a{
+  color: #0077ff;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+/* Klarifikasi */
+.kla{
+  box-sizing: border-box;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border: 3px solid white;
+  width: 90%;
+  margin-left: 50px;
+  margin-bottom: 5%;
+}
+.kla h3{
+  font-size: 2rem;
+  color: greenyellow;
+}
+.don{
+  margin-bottom: 10%;
+}
+.don a {
+  text-align: center;
+  padding: 15px 300px;
+  border-radius: 50px;
+  background-color: crimson;
+  color: white;
+  font-size: 2rem;
+  margin-left: 300px;
+  text-decoration: none;
+}
+.don a:hover {
+  background-color: #3b5999;
+  border: 2px solid white;
+  transition: all 0.4s ease;
+}
+
+footer{
+  background-color: #111;
+  box-sizing: border-box;
+}
+.footercontainer{
+  width: 100%;
+  padding: 50px 30px 20px;
+}
+.socialicons{
+  display: flex;
+  justify-content: center;
+}
+.socialicons a{
+  text-decoration: none;
+  padding: 10px;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 50%;
+}
+.socialicons a i{
+  font-size: 2em;
+  color: black;
+  opacity: 0.9;
+  text-align: center;
+}
+.socialicons a:hover{
+  background-color: black;
+  transition: 0.5s;
+}
+.socialicons a:hover i{
+  color: white;
+  transition: 0.4s;
+}
+.footernav{
+  margin: 30px 0;
+}
+.footernav ul{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.footernav ul li a{
+  color: white;
+  margin: 20px;
+  text-decoration: none;
+  font-size: 1.3em;
+  opacity: 0.7;
+  transition: 0.4s;
+}
+.footernav ul li a:hover{
+  opacity: 1;
+}
+.footerbottom{
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+}
+.footerbottom p{
+  color: white;
+}
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 758px) {
+  html {
+    font-size: 67.8%;
+    max-width: 750px;
+    margin-right: 0%;
+    align-items: center;
+  }
+  #hamburger-menu {
+    display: inline-block;
+  }
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+  .navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+  .navbar .search-form {
+    width: 90%;
+    right: 2rem;
+  }
+  .banner a {
+    padding: 15px 99px;
+    border-radius: 50px;
+    background-color: crimson;
+    color: white;
+    text-decoration: none;
+  }
+  h1 span::before {
+    content: "";
+    animation: gerak infinite 8s ease;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 30px;
+  }
+  .navbar .navbar-nav .login {
+    background-color: #0077ff;
+    border-radius: 16px;
+  }
+  .navbar .navbar-nav .login:hover {
+    background-color: #fff;
+    transition: all 0.5s ease;
+  }
+  .navbar .navbar-nav .login {
+    font-weight: 600;
+    text-align: center;
+  }
+  .navbar .navbar-nav .login::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+    transition: 0.2s linear;
+  }
+  .navbar .navbar-nav .login:hover::after {
+    transform: scaleX(1);
+    transition: all 0.5s ease;
+  }
+  .banner p{
+    font-size: 12px;
+    width: 100%;
+    margin-left: 5px;
+  }
+  .responsive-table{
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .penjualan table{
+    width: 80%;
+    text-align: center;
+  }
+  .card-column{
+    width: 49%;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: 4px;
+    text-align: center;
+  }
+  .card-row{
+    text-align: center;
+    /* margin-left: 50px; */
+    display: block;
+  }
+  .card-row h2{
+    width: 100%;
+    justify-content: center;
+    font-size: 3rem;
+  }
+  .kla{
+    box-sizing: border-box;
+  }
+  .kla h3{
+    font-size: 1rem;
+    color: greenyellow;
+  }
+  .don a {
+    padding: 15px 50px;
+    border-radius: 50px;
+    background-color: crimson;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  .footernav ul{
+    flex-direction: column;
+  }
+  .footernav ul li{
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+  }
+}
+
+/* Mobile Phone */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}
